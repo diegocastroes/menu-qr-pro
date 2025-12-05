@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🍔 Menú Digital Restaurante</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div class="header">
+        <h1> REYPAS</h1>
+        <p>Con cada mordida, haces parte de la historia</p>
+    </div>
+
+    <!-- TABS CATEGORIAS -->
+    <div class="tabs">
+        <div class="tab active" onclick="mostrarCategoria('bebidas')">🥤 Bebidas</div>
+        <div class="tab" onclick="mostrarCategoria('platos')">🍗 Arepas</div>
+        <div class="tab" onclick="mostrarCategoria('postres')">🍰 Combos</div>
+    </div>
+
+    <!-- CATEGORIAS -->
+    <div id="bebidas" class="category active"></div>
+    <div id="platos" class="category"></div>
+    <div id="postres" cgolass="catery"></div>
+</div>
+
+<!-- CARRITO FLOTANTE -->
+<div class="carrito-flotante" onclick="abrirCarrito()">🛒 <span id="cantidad-carrito">0</span></div>
+
+<!-- MODAL CARRITO -->
+<div id="modalCarrito" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="cerrarCarrito()">&times;</span>
+        <div class="modal-header">🛒 Tu Carrito</div>
+        <div id="contenido-carrito"></div>
+        <div class="carrito-total">Total: $<span id="total-carrito">0</span></div>
+        <button class="btn-pedido" onclick="realizarPedido()">📱 Enviar por WhatsApp</button>
+    </div>
+</div>
+
+<!-- PANEL ADMIN -->
+<div class="admin-panel" id="adminPanel">
+    <h3>🔧 Panel Admin</h3>
+    <input id="nombre" placeholder="📝 Nombre del plato" />
+    <input id="precio" placeholder="💰 Precio (ej: 12.50)" />
+    <input id="img" placeholder="🖼️ URL de imagen" />
+    <textarea id="desc" placeholder="📄 Descripción" rows="3"></textarea>
+    <select id="categoria">
+        <option value="bebidas">🥤 Bebidas</option>
+        <option value="platos">🍗 Platos Fuertes</option>
+        <option value="postres">🍰 Postres</option>
+    </select>
+    <button onclick="agregarPlato()">➕ Agregar Plato</button>
+    <button class="btn-cerrar" onclick="toggleAdmin()">✕ Cerrar Panel</button>
+    <div class="hr"></div>
+    <h3>📋 Menú Actual (<span id="total-platos">0</span>)</h3>
+    <div id="listaPlatos"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
