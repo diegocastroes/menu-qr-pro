@@ -1,55 +1,170 @@
-body {
-    margin: 0;
-    padding: 16px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #ffffff;
-    color: #ff0000;
+body { /*Esto es  para modificar todo el cuerpo de la pagina*/
+    margin: 0; /* Esto nos quita el margen que por defecto trae el body*/
+    padding: 16px; /* Esto le da un espacio a todo lo que esta dentro del body y el borde de arriba de la pantalla*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /*Esto es el estilo de la letra que usaremos en nuestro Menu*/
+    background-color: #ffffff; /* Esto define el color de el fondo de nuestro Menu */
+    color: #ff0000; /*Esto nos define el color de las letras de nuestro Menu*/
 }
 
-body {
-    display: flex;
-    justify-content: center;
+body { /*Esto es  para modificar todo el cuerpo de la pagina*/
+    display: flex; /*Esto lo que hace es darle orden a toda mi pagina, como juguetes bien ordenaditos uno depues de el otro, tambien me permite usar otros estilos como el de abajo de este*/
+    justify-content: center; /*Esto nos centra todo el contenido de el body (cabe recordar que sin display: flex; este estilo no funcionaria)*/
 }
 
-main, .page {
-    max-width: 480px;
-    width: 100%;
+main, .page { /*Esto es para modificar toda la pagina en general*/
+    max-width: 480px; /*Esto nos da el maximo tamaño que pueda tener la pagina para que se vea bien en pantallas pequeñas y que no se vea muy grande en pantallas grandes */
+    width: 100%; /*Esto es para que ocupe toda la pantalla en pantallas pequeñas, como las de los celulares*/
 }
 
-h1 {
-    text-align: center;
-    letter-spacing: 2px;
-    margin-bottom: 4px;
+h1 { /*Esto es para Titulos*/
+    text-align: center; /*Esto nos alinia el texto al centro de todas nuestra etiqueta h1*/
+    letter-spacing: 2px; /*Esto nos separa un poco las letras de nuestra etiqueta h1, ya que es una marca, se separa para que se vea mas de marca*/
+    margin-bottom: 5px; /*Esto nos da un espacio de 5px entre el Titulo y lo la otra etiqueta que esta debajo*/
 }
 
-p {
-    margin-top: 4px;
+p { /*Esto es para parrafos*/
+    margin-top: 4px;      /*Estas dos etiquetas me dan espacio 4px entre la etiqueta p y la que este arriba y 12px entre la misma etiqueta p y la etiquta que se encuentre en la parte de abajo*/
     margin-bottom: 12px;
 }
 
-h2 {
-    margin-top: 24px;
-    margin-bottom: 8px;
-    border-bottom: 2px solid #ff9800;
+h2 { /*Esto para subtitulos casi siempre*/
+    margin-top: 24px; /*lo mismo que la etiqueta p pero con valores diferentes*/
+    margin-bottom: 8px; /*lo mismo que la etiqueta p pero con valores diferentes*/
+    border-bottom: 2px solid hsl(36, 100%, 50%); /*Esto lo que hace es crearnos una linea debajo de todos los h2, de un grosor de 2px y de tipo solid(linea sin espacios, linea recta)*/
+    padding-bottom: 4px; /*Espacio de 4px entre la linea que creamos y la etiqueta h2, cabe recalcar que el padding solo se usa para separar elementos de una misma etiqueta, a diferencia de el margin que nos separa 2 etiquetas diferentes*/
 }
 
-ul {
-    list-style: none;
-    padding-left: 0;
+ul { /*Esto que crea una lista */
+    list-style: none; /*Esto quita las biñetas(puntos) de nuestras listas*/
+    padding-left: 0; /*Esto le quita el espacio que por defecto se encuentra a la izquierda de cada biñeta */
+    margin: 0; /*Esto quita los margenes extras que hallan arriba y abajo de la lista*/
+}
+
+li { /*Esto es cada biñeta de la lista*/
+    padding: 6px 0; /*Agrega espacio arriba y abajo de cada biñeta y nada de espacio a la derecha y a la izquierda de cada biñeta*/
+    border-bottom: 1px solid #333; /*Esto nos crea una linea debajo de cada etiqeuta li */
+}   
+
+hr { /*Esto es para modificar la linea que creamos*/
+    border: none; /*Esto elimina el estilo que por defecto tiene el hr*/
+    border-top: 1px solid #333; /*Esto nos crea la linea simple de color gris oscuro*/
+    margin: 16px 0; /*Esto nos da espacio de 16px arriba y abajo de la linea */
+}
+
+.contacto { /*Esto nos modifica toda la seccion de contacto*/
+    margin-top: 16px; /*Esto nos da un margen de 16px entre la etiqueta contacto y la que este arriba*/
+    font-size: 0.95rem; /*Esto hace que el texto se vea un poco mas pequeño que el normal para que paresca como lo ultimo de la pagina*/
+    margin-bottom: 16px; /*Esto le da un espacio de 16px entre esta etiqueta y el final de la pagina */
+}
+
+header {
+    background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%));
+    padding: 20%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0,0,0.3);
     margin: 0;
 }
 
+body {
+    color: #2c2c2c;
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
 li {
-    padding: 6px 0;
-    border-bottom: 1px solid #333;
+    color: #444;
+    font-weight: 500;
 }
 
-hr {
+li strong {
+    color: hsl(36, 100%, 50%);
+    float: right;
+}
+
+li:hover {
+    background: hsl(36, 100%, 95%);
+    border-left: 4px solid hsl(36, 100%, 50%);
+    transition: all 0.2s ease;
+}
+
+.contacto p:last-child {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: hsl(36, 100%, 50%);
+    margin-top: 8px;
+}
+
+/*cambios fantoche */
+
+/* CAMBIO 6: Cards suaves para cada sección */
+    section.menu-bloque {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+}
+
+/* CAMBIO 7: Títulos de sección más bonitos */
+    h2 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid hsl(36, 100%, 50%);
+    padding-bottom: 4px;
+    font-size: 1.5rem;
+}
+
+/* CAMBIO 8: Línea suave entre ítems */
+    li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* CAMBIO 9: Botón “modo oscuro” */
+    .boton-modo {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 14px;
+    border-radius: 999px;
     border: none;
-    border-top: 1px solid #333;
+    background: hsl(36, 100%, 50%);
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
 }
 
-.contacto {
-    margin-top: 16px;
-    font-size: 0.95rem;
+    .boton-modo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }
+
+/* CAMBIO 10: Estilos para modo oscuro */
+    body.modo-oscuro {
+    background: #111827;
+    color: #f9fafb;
+}
+
+    body.modo-oscuro .page {
+    background: #111827;
+}
+
+    body.modo-oscuro li {
+    border-bottom-color: #374151;
+}
+
+    body.modo-oscuro hr {
+    border-top-color: #374151;
+}
+
+    body.modo-oscuro .boton-modo {
+    background: #f59e0b;
+}
+
+
