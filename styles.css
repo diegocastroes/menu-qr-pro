@@ -167,4 +167,55 @@ li:hover {
     background: #f59e0b;
 }
 
+/*Cambios 2*/
+h1 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
 
+h2 {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+li {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.page {
+    padding-bottom: 32px;
+}
+
+section.menu-bloque ul {
+    margin-top: 4px;
+}
+
+section.menu-bloque {
+    margin-top: 8px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-nombre {
+    font-weight: 400;
+}
+
+.item-precio {
+    font-weight: 600;
+    color: hsl(36, 100%, 40%);
+}
+
+.wap-link {
+    color: hsl(36, 100%, 50%);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.wap-link:hover {
+    text-decoration: underline;
+}

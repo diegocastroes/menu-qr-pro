@@ -12,3 +12,12 @@ botonModo.addEventListener('click', () => {
     botonModo.textContent = 'Modo oscuro';
   }
 });
+
+// Resalta el título de sección al tocarla
+const titulos = document.querySelectorAll('h2');
+
+titulos.forEach((titulo) => {
+  titulo.addEventListener('click', () => {
+    titulo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
