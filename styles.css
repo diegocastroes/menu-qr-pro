@@ -12,7 +12,7 @@ body { /*Esto es  para modificar todo el cuerpo de la pagina*/
 }
 
 main, .page { /*Esto es para modificar toda la pagina en general*/
-    max-width: 480px; /*Esto nos da el maximo tamaño que pueda tener la pagina para que se vea bien en pantallas pequeñas y que no se vea muy grande en pantallas grandes */
+    max-width: 580px; /*Esto nos da el maximo tamaño que pueda tener la pagina para que se vea bien en pantallas pequeñas y que no se vea muy grande en pantallas grandes */
     width: 100%; /*Esto es para que ocupe toda la pantalla en pantallas pequeñas, como las de los celulares*/
 }
 
@@ -56,7 +56,7 @@ hr { /*Esto es para modificar la linea que creamos*/
     font-size: 0.95rem; /*Esto hace que el texto se vea un poco mas pequeño que el normal para que paresca como lo ultimo de la pagina*/
     margin-bottom: 16px; /*Esto le da un espacio de 16px entre esta etiqueta y el final de la pagina */
 }
-
+/*Cambios 1*/
 header {
     background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%));
     padding: 20%;
@@ -218,4 +218,32 @@ li {
 
 .wap-link:hover {
     text-decoration: underline;
+}
+
+/* Logos REYPAS */
+/* Fila de logos arriba del titulo */
+
+header {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* centra el texto de el parrafo */
+}
+
+.logo-central {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+}
+
+header p {
+    max-width: 420px;     /* limita ancho para que se vea centrado*/
+    margin-top: 0;
+    margin-bottom: 16px;
+    
 }
