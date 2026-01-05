@@ -1,206 +1,167 @@
-body { /*Esto es  para modificar todo el cuerpo de la pagina*/
-    margin: 0; /* Esto nos quita el margen que por defecto trae el body*/
+body { /* Esto es  para modificar todo el cuerpo de la pagina */    
+
+    margin: 0 auto; /* Esto nos quita el margen que por defecto trae el body*/
     padding: 16px; /* Esto le da un espacio a todo lo que esta dentro del body y el borde de arriba de la pantalla*/
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /*Esto es el estilo de la letra que usaremos en nuestro Menu*/
-    background-color: #ffffff; /* Esto define el color de el fondo de nuestro Menu */
-    color: #ff0000; /*Esto nos define el color de las letras de nuestro Menu*/
-}
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; /*Esto es el estilo de la letra que usaremos en nuestro Menu, "system-ui" esto significa que se use la fuente de interfaz predeterminada del sistema operativo   "UI" significa User Interface */
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff); /*Esto nos da un degradado de dos colores "to bottom" o sea de arriba a abajo*/
+    color: #2c2c2c; /*Esto nos define el color de las letras de nuestro Menu */
 
-body { /*Esto es  para modificar todo el cuerpo de la pagina*/
     display: flex; /*Esto lo que hace es darle orden a toda mi pagina, como juguetes bien ordenaditos uno depues de el otro, tambien me permite usar otros estilos como el de abajo de este*/
-    justify-content: center; /*Esto nos centra todo el contenido de el body (cabe recordar que sin display: flex; este estilo no funcionaria)*/
+    justify-content: center;/*justify-content: center; /*Esto nos centra todo el contenido de el body (cabe recordar que sin display: flex; este estilo no funcionaria) */ 
+    
 }
 
-main, .page { /*Esto es para modificar toda la pagina en general*/
+/* Estilos para modo oscuro (MO)*/
+body.modo-oscuro {  /* Esto quiere decir: al body, cuando este en modo oscur o cuando el tipo de clase sea de modo oscucuro aplicale los cambios */
+    background: #111827; /*Esto nos define el color de fondo en el modo oscuro */
+    color: #f9fafb; /*Esto nos define el color de la letra para el modo oscuro */
+}
+
+body.modo-oscuro li {   
+    border-bottom-color: #374151; /*Esto nos cambia de color de la linea que se encuentra debajo de los li (de los productos y precios)*/
+}
+
+body.modo-oscuro hr {
+    border-top-color: #374151; /* Esto nos modifica el color de el hr en el modo oscuro para los hr se suele usar border-top */
+}
+
+/* Botón “modo oscuro” */
+.boton-modo { /* Agrega estilos a la clase boton-modo */
+    display: inline-block; /* Esto sirve para que nuestro boton, se comporte como un boton de verdad en la pagina, que pueda ir en la misma linea con otros elemntos, pero que al mismo tiempo tenga, tamaño y forma gracias al padding */
+    margin-top: 12px; /* Esto le da un espacio de 12px con lo que este arriba de el boton */
+    padding: 6px 14px; /* Esto le da espacio interno al boton 6px de arriba hacia abajo y 14px de izquierda a derecha, hace que nuestro boton se vea mas grande por dentro */
+    border-radius: 999px; /* Esto es para darle borde a nuestro boton arto , queda como una pastilla (pill) */
+    border: none; /* Quita el borde que le ponene los navegadores a los botones por defecto*/
+    background: hsl(36, 100%, 50%); /* Nos define el color de fondo usando hsl que significa  h(Hue/ tono) esto nos da el color base, se maneja un rango de 0 a 360 an grados en este caso 36 que es naranja, s(Saturation / saturacion) nos maneja que tan vivo o apagado esta el color, 0% es totalmente gris y 100% es el color al maximo, en este caso lo usaremos al maximo por ultimo l (Lightness / luminosidad) aqui el 50% es el punto medio para el color "puro", 0% es negro y 100% es blaco*/
+    color: #fff; /*Esto nos da el color de la fuente de la letra de el boton */
+    font-size: 0.9rem; /* Esto le da el tamaño a la letra de nuestro boton */
+    cursor: pointer; /*Esto es para que cuado se le pase el cursor por encima muestre una mano */
+    box-shadow: 0 2px  6px rgba(0,0,0,0.2); /*Esto le da la sombra al boton la linea se desglosa de la siguiente manera: "0" = Offset-X(Desplazamiento en X) Define desplazamiento Horizontal, Este valor nos posiciona la sombra en el centro, numeros positivos la mueven a la derecha y los negativos a la izquierda, "2px" = Offset-Y Define desplazamiento Vertical, Este valor nos posiciona la sombra un poco abajo de el boton, como si se estuviera elevando, numeros negativos la suben y numeros positivos la bajan, 6px = Blur-Radius (Radio de desenfoque de la sombra) 6px nos da un efecto suave, entre mas alto el numero mas borrosa se vera la sombra, o sea al momento de aumentar el numero la sombra se nos etirara mas es decir, se nos alarga mas a las lados y de arriba hacia abajo y los bordes se ponene mas suaves, Color(rgba(0,0,0,0.2)) R=0, G=0, B=0, alpha=20% opacidad, para un efecto natural y sutil, el alpha nos permite trasparencia, evitando sombras opacas.*/
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s; /* Todo esto nos sirve para el momento en que se va a usar el hover, el  "transform 0.15s ease" se desglosa de la siguiente manera, transform: es para hacerlo mas grande o mas pequeño o rotarlo, 0.15s: para que tarde un poco antes de que suceda el transform y ease: Es para que se empiece lento acelera en medio  y termine lento, ahora vamos con el "box-shadow 0.15s ease" es para cualquier cambio que se le haga a ala sombra cpn 0.15s de retraso mas el ease, y por ultimo:background 0.2s Este es para modificar cualquier cambio de color de el boton con un poco mas de retraso (0.20s) mas el ease */
+}
+
+.boton-modo:hover { /* Esto node define que pasa con el hover(o sea caundo pasamos el maus encima de cualquier etiqueta html), de el boton con la clase boton-modo */
+    transform: translateY(-1px); /* Esto lo que hace es que el boton se nos va a mover un poco hacia arriba (1px) usando las reglas que ya definimos antes para suavisar el movimiento */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25); /*Esta linea se usa para modificar la sombra se desglosa de la siguiente manera: "0" sin movimiento horizontal, "3px" sombra 3 pixeles mas abajo de lo normal, "8px" Esto nos la pone mas borrosa(mas grande la sombra), y el rgba(0,0,0,0.25) es el mimsmo color negro pero mas intenso (0.25 o al 25%) */
+}
+
+.page { /*Esto es para modificar toda la pagina en general*/
     max-width: 580px; /*Esto nos da el maximo tamaño que pueda tener la pagina para que se vea bien en pantallas pequeñas y que no se vea muy grande en pantallas grandes */
     width: 100%; /*Esto es para que ocupe toda la pantalla en pantallas pequeñas, como las de los celulares*/
 }
 
-h1 { /*Esto es para Titulos*/
-    text-align: center; /*Esto nos alinia el texto al centro de todas nuestra etiqueta h1*/
-    letter-spacing: 2px; /*Esto nos separa un poco las letras de nuestra etiqueta h1, ya que es una marca, se separa para que se vea mas de marca*/
-    margin-bottom: 5px; /*Esto nos da un espacio de 5px entre el Titulo y lo la otra etiqueta que esta debajo*/
+
+h1 {  /* Esto es para Titulos en este caso es para el titulo de la marca "REYPAS" */
+    text-align: center; /* Esto nos alinia el texto al centro de todas nuestra etiqueta h1 */
+    letter-spacing: 2px; /* Esto nos separa un poco las letras de nuestra etiqueta h1, ya que es una marca, se separa para que se vea mas de marca */
+    margin: 0 0 8px 0; /* esto es para los espacios que se le da a la etiqueta con respecto a los otros elemntos a su alrededor, estos de desglosan de la siguiente manera con orden fijo: arriba de el h1, derecha de el h1, abajo de el h1, izquierda de el h1, en este caso solo se le da un epacio entre el h1 y la etiqueta que se encuentra abajo de 8px*/
+
+    color: white !important; /* Esto nos define el color de la etiqueta a blanco y el "important" nos fuerza a usar el color blanco po encima de cualquier otra regla css que le cambie el color al h1 */
+    text-shadow: 2px 2px 4px rgba(0, 0,0,0.3); /* Esto nos da sombra a nuesto h1, la linea de desglosa de la siguiente manera, 2px hacia la derecha, 2px hacia abajp, 4px mas borrosa (osea la sombra de nos estira 4px hacia todos los lados) y el color rgba que es un negro con una opacidad de 30% */
+    
+    font-size: 2rem; /* Esto nos ayuda a modificar el tamaño de la letra en este caso 2rem (16px*2) */
+    letter-spacing: 3px;/* Esto nos da un espacio de 3px de separacion entre cada letra */
+
 }
 
-p { /*Esto es para parrafos*/
-    margin-top: 4px;      /*Estas dos etiquetas me dan espacio 4px entre la etiqueta p y la que este arriba y 12px entre la misma etiqueta p y la etiquta que se encuentre en la parte de abajo*/
-    margin-bottom: 12px;
+p { /* Esto es para parrafos */
+    margin-top: 4px; /* Estas dos etiquetas me dan espacio 4px entre la etiqueta p y la que este arriba y 12px entre la misma etiqueta p y la etiquta que se encuentre en la parte de abajo. */
+    margin-bottom: 12px; 
 }
 
-h2 { /*Esto para subtitulos casi siempre*/
-    margin-top: 24px; /*lo mismo que la etiqueta p pero con valores diferentes*/
-    margin-bottom: 8px; /*lo mismo que la etiqueta p pero con valores diferentes*/
-    border-bottom: 2px solid hsl(36, 100%, 50%); /*Esto lo que hace es crearnos una linea debajo de todos los h2, de un grosor de 2px y de tipo solid(linea sin espacios, linea recta)*/
-    padding-bottom: 4px; /*Espacio de 4px entre la linea que creamos y la etiqueta h2, cabe recalcar que el padding solo se usa para separar elementos de una misma etiqueta, a diferencia de el margin que nos separa 2 etiquetas diferentes*/
+h2 { /* Esto para subtitulos casi siempre */
+    margin-top: 24px; /* Lo mismo que la etiqueta p pero con valores diferentes */
+    margin-bottom: 8px; /* Lo mismo que la etiqueta p pero con valores diferentes */
+    border-bottom: 2px solid hsl(36, 100%, 50%); /* Esto lo que hace es crearnos una linea debajo de todos los h2, de un grosor de 2px y de tipo solid(linea sin espacios, linea recta) con el mismo color de el header */
+    padding-bottom: 4px; /* Espacio de 4px entre la linea que creamos y la etiqueta h2, cabe recalcar que el padding solo se usa para separar elementos de una misma etiqueta, a diferencia de el margin que nos separa 2 etiquetas diferentes */
+    font-size: 1.5rem; /* Esto nos da el tamaño de la letra un poco mas pequeña que el h1 */
+    letter-spacing: 1px; /* Esto nos da un espacio entre cada letra de 1px */
 }
 
-ul { /*Esto que crea una lista */
-    list-style: none; /*Esto quita las biñetas(puntos) de nuestras listas*/
-    padding-left: 0; /*Esto le quita el espacio que por defecto se encuentra a la izquierda de cada biñeta */
-    margin: 0; /*Esto quita los margenes extras que hallan arriba y abajo de la lista*/
+ul { /* Esto que crea una lista */
+    list-style-type: disc; /* Esto quita las biñetas(puntos) de nuestras listas */
+    padding-left: 0; /* Esto le quita el espacio que por defecto se encuentra a la izquierda de cada biñeta */
+    margin: 0; /* Esto quita los margenes extras que hallan arriba y abajo de la lista */
 }
 
-li { /*Esto es cada biñeta de la lista*/
-    padding: 6px 0; /*Agrega espacio arriba y abajo de cada biñeta y nada de espacio a la derecha y a la izquierda de cada biñeta*/
-    border-bottom: 1px solid #333; /*Esto nos crea una linea debajo de cada etiqeuta li */
-}   
+li { /* Esto es cada biñeta de la lista */
 
-hr { /*Esto es para modificar la linea que creamos*/
+    padding: 8px 0; /* Agrega espacio arriba y abajo de cada biñeta y nada de espacio a la derecha y a la izquierda de cada biñeta */
+
+    display: flex; /* Esta etiqueta nos acomoda en fila (horizontalmete) y pegados los elementos que se encuantran en el li, y los prepara para poder cepararlos o centraslos con otro estilo (el de abajo), sin esto no se podria modificar nada de eso */
+    justify-content: space-between; /* Esto nos pega nuestro primer elemento a la izquierda y el ultimo a la derecha y deja todo un espacio vacio entre los dos, sin este estilo estarian todos pegado a la izquierda */
+    align-items: center; /* Esto nos aline */
+
+    font-size: 1rem; /* Esto nos da el tamaño de la letra */
+    line-height: 1.5; /* Esto lo que hace es que nos dice cuanto se separa una linea de otra linea, el 1.5 lo que hace esque al tamaño que le dimos a nuestra letra que en este caso es 1rem(16px), lo multiplicamos 1.5 veces entonces el espacio total de la linea seria de 24px, los 8px que sobran son los que se reparten 4px abajo y 4px arriba, para separar cada linea */
+
+    border-bottom: 1px solid #ddd; /* Esto nos crea una linea debajo de cada etiqeuta li, de 1px de grosor solid(o sea linea seguida no punteada) y el color que es este caso es blanco*/
+
+    color: #444; /* Aqui se establece el color de la letra de cada li*/
+    
+}
+
+li:hover { /*Estilos para cuando se le pase el maus encima de el li */
+    background: hsl(36, 100%, 95%); /*Esto nos da un color blanco diferente un poco diferente al de la pagina */
+    border-left: 4px solid hsl(36, 100%, 50%); /* Esto nos da una linea en la parte izquierda de el li de 4px de grosor linea seguida no puntiada y del mismo color que el fondo de el header*/
+    transition: all 0.2s ease; /* Esto lo que hace esque a todo lo que este en este style, le de un retrado de 0.2s en vez de que sea de golpe cualuqier tipo de efecto que se le aplique, mas el ease: que hace que la animacion empiece suave acelere en el medio y termine suave */
+}
+
+hr { /* Esto es para modificar la linea que creamos */
     border: none; /*Esto elimina el estilo que por defecto tiene el hr*/
     border-top: 1px solid #333; /*Esto nos crea la linea simple de color gris oscuro*/
     margin: 16px 0; /*Esto nos da espacio de 16px arriba y abajo de la linea */
 }
 
-.contacto { /*Esto nos modifica toda la seccion de contacto*/
-    margin-top: 16px; /*Esto nos da un margen de 16px entre la etiqueta contacto y la que este arriba*/
-    font-size: 0.95rem; /*Esto hace que el texto se vea un poco mas pequeño que el normal para que paresca como lo ultimo de la pagina*/
-    margin-bottom: 16px; /*Esto le da un espacio de 16px entre esta etiqueta y el final de la pagina */
+.contacto { /* Esto nos modifica toda la seccion de contacto */
+    margin-top: 16px; /* Esto nos da un margen de 16px entre la etiqueta contacto y la que este arriba */
+    font-size: 0.95rem; /* Esto hace que el texto se vea un poco mas pequeño que el normal para que paresca como lo ultimo de la pagina */
+    margin-bottom: 16px; /* Esto le da un espacio de 16px entre esta etiqueta y el final de la pagina */
 }
-/*Cambios 1*/
+
+header { /* Esto nos da estilos a toda la parte de el header de nuestro menu */
+    background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%)); /* Bueno esta linea nos modifica el fondo de nuestro header con un linear-gradient (degradado lineal) con una direccion de 135deg (135 grados), o sea va en diagonal de derecha hacia abajo segun las siguientes reglas: 0deg = hacia arriba,90deg = hacia la derecha,180deg = hacia abajo y 270deg = hacia la izquierda (el 360 no se cuenta porque es el mismo que 0), teniendo en cuenta esto cada grado intermedio entre estos numeros se tomara segun los numeros en que se encuentre, en sentido anti horario = ↑←, para este caso el 13deg se encuentra entre 90 y 180 segun sentido antihorario osea 90 que es derecha y 180 que es abajo, pues significa  de la derecha hacia abajo o en otra palabras diagonal de derecha hacia abajo, luego de esto siguigue el primer color por el que va a empezar el degradado que es de tipo HLS = tono,saturacion,luminosida, 36 = naranja, 100% = lo mas vivo que da el color, 50% = brillo medio o sea naranja intenso, y el segundo color un naranja mas claro y menos intenso*/
+    padding: 20%; 
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center; /* centra el texto de el parrafo */ 
+}
 header {
     background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%));
     padding: 20%;
     border-radius: 12px;
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
 }
 
-h1 {
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0, 0,0,0.3);
-    margin: 0;
+
+header p {
+    max-width: 420px;     /* limita ancho para que se vea centrado*/
+    margin-top: 0;
+    margin-bottom: 16px;
+    
 }
 
-body {
-    color: #2c2c2c;
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-}
-
-li {
-    color: #444;
-    font-weight: 500;
-}
-
-li strong {
-    color: hsl(36, 100%, 50%);
-    float: right;
-}
-
-li:hover {
-    background: hsl(36, 100%, 95%);
-    border-left: 4px solid hsl(36, 100%, 50%);
-    transition: all 0.2s ease;
-}
-
-.contacto p:last-child {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: hsl(36, 100%, 50%);
-    margin-top: 8px;
-}
-
-/*cambios fantoche */
-
-/* CAMBIO 6: Cards suaves para cada sección */
-    section.menu-bloque {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 16px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    margin-bottom: 24px;
-}
-
-/* CAMBIO 7: Títulos de sección más bonitos */
-    h2 {
-    margin-top: 24px;
-    margin-bottom: 8px;
-    border-bottom: 2px solid hsl(36, 100%, 50%);
-    padding-bottom: 4px;
-    font-size: 1.5rem;
-}
-
-/* CAMBIO 8: Línea suave entre ítems */
-    li {
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-/* CAMBIO 9: Botón “modo oscuro” */
-    .boton-modo {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: none;
-    background: hsl(36, 100%, 50%);
-    color: #fff;
-    font-size: 0.9rem;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
-}
-
-    .boton-modo:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-}
-
-/* CAMBIO 10: Estilos para modo oscuro */
-    body.modo-oscuro {
-    background: #111827;
-    color: #f9fafb;
-}
-
-    body.modo-oscuro .page {
-    background: #111827;
-}
-
-    body.modo-oscuro li {
-    border-bottom-color: #374151;
-}
-
-    body.modo-oscuro hr {
-    border-top-color: #374151;
-}
-
-    body.modo-oscuro .boton-modo {
-    background: #f59e0b;
-}
-
-/*Cambios 2*/
-h1 {
-    font-size: 2rem;
-    letter-spacing: 3px;
-}
-
-h2 {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-}
-
-li {
-    font-size: 1rem;
-    line-height: 1.5;
-}
 
 .page {
     padding-bottom: 32px;
 }
 
-section.menu-bloque ul {
-    margin-top: 4px;
-}
-
-section.menu-bloque {
-    margin-top: 8px;
-}
-
-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Cambios Nombres y Precios de Productos*/
 .item-nombre {
     font-weight: 400;
 }
@@ -209,6 +170,8 @@ li {
     font-weight: 600;
     color: hsl(36, 100%, 40%);
 }
+
+/* Cambios de Contacto y WhatsApp*/
 
 .wap-link {
     color: hsl(36, 100%, 50%);
@@ -220,30 +183,20 @@ li {
     text-decoration: underline;
 }
 
-/* Logos REYPAS */
-/* Fila de logos arriba del titulo */
-
-header {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* centra el texto de el parrafo */
+.contacto p:last-child {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: hsl(36, 100%, 50%);
+    margin-top: 8px;
 }
 
+
+/* Logo REYPAS */
+
 .logo-central {
-    width: 120px;
+    width: 100px;
     height: auto;
     margin-bottom: 0;
     padding: 0;
-}
-
-header h1 {
-    margin: 0 0 8px 0;
-}
-
-header p {
-    max-width: 420px;     /* limita ancho para que se vea centrado*/
-    margin-top: 0;
-    margin-bottom: 16px;
-    
+    align-content: center;
 }
