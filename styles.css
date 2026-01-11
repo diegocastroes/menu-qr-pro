@@ -48,8 +48,8 @@ body.modo-oscuro hr {
 .page { /*Esto es para modificar toda la pagina en general*/
     max-width: 580px; /*Esto nos da el maximo tamaño que pueda tener la pagina para que se vea bien en pantallas pequeñas y que no se vea muy grande en pantallas grandes */
     width: 100%; /*Esto es para que ocupe toda la pantalla en pantallas pequeñas, como las de los celulares*/
+    padding-bottom: 32px; /* Esto nos separa 32px el ultimo elemento de el menu con el borde de abajo final de el .page*/
 }
-
 
 h1 {  /* Esto es para Titulos en este caso es para el titulo de la marca "REYPAS" */
     text-align: center; /* Esto nos alinia el texto al centro de todas nuestra etiqueta h1 */
@@ -88,7 +88,7 @@ li { /* Esto es cada biñeta de la lista */
 
     padding: 8px 0; /* Agrega espacio arriba y abajo de cada biñeta y nada de espacio a la derecha y a la izquierda de cada biñeta */
 
-    display: flex; /* Esta etiqueta nos acomoda en fila (horizontalmete) y pegados los elementos que se encuantran en el li, y los prepara para poder cepararlos o centraslos con otro estilo (el de abajo), sin esto no se podria modificar nada de eso */
+    display: block; /* Esta etiqueta nos acomoda en fila (horizontalmete) y pegados los elementos que se encuantran en el li, y los prepara para poder cepararlos o centraslos con otro estilo (el de abajo), sin esto no se podria modificar nada de eso */
     justify-content: space-between; /* Esto nos pega nuestro primer elemento a la izquierda y el ultimo a la derecha y deja todo un espacio vacio entre los dos, sin este estilo estarian todos pegado a la izquierda */
     align-items: center; /* Esto nos aline */
 
@@ -98,6 +98,8 @@ li { /* Esto es cada biñeta de la lista */
     border-bottom: 1px solid #ddd; /* Esto nos crea una linea debajo de cada etiqeuta li, de 1px de grosor solid(o sea linea seguida no punteada) y el color que es este caso es blanco*/
 
     color: #444; /* Aqui se establece el color de la letra de cada li*/
+
+    position: relative;
     
 }
 
@@ -120,83 +122,105 @@ hr { /* Esto es para modificar la linea que creamos */
 }
 
 header { /* Esto nos da estilos a toda la parte de el header de nuestro menu */
-    background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%)); /* Bueno esta linea nos modifica el fondo de nuestro header con un linear-gradient (degradado lineal) con una direccion de 135deg (135 grados), o sea va en diagonal de derecha hacia abajo segun las siguientes reglas: 0deg = hacia arriba,90deg = hacia la derecha,180deg = hacia abajo y 270deg = hacia la izquierda (el 360 no se cuenta porque es el mismo que 0), teniendo en cuenta esto cada grado intermedio entre estos numeros se tomara segun los numeros en que se encuentre, en sentido anti horario = ↑←, para este caso el 13deg se encuentra entre 90 y 180 segun sentido antihorario osea 90 que es derecha y 180 que es abajo, pues significa  de la derecha hacia abajo o en otra palabras diagonal de derecha hacia abajo, luego de esto siguigue el primer color por el que va a empezar el degradado que es de tipo HLS = tono,saturacion,luminosida, 36 = naranja, 100% = lo mas vivo que da el color, 50% = brillo medio o sea naranja intenso, y el segundo color un naranja mas claro y menos intenso*/
-    padding: 20%; 
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%)); /* Bueno esta linea nos modifica el fondo de nuestro header con un linear-gradient (degradado lineal) con una direccion de 135deg (135 grados), o sea va en diagonal de derecha hacia abajo segun las siguientes reglas: 0deg = hacia arriba,90deg = hacia la derecha,180deg = hacia abajo y 270deg = hacia la izquierda (el 360 no se cuenta porque es el mismo que 0), teniendo en cuenta esto cada grado intermedio entre estos numeros se tomara segun los numeros en que se encuentre, en sentido anti horario = ↑←, para este caso el 135deg se encuentra entre 90 y 180 segun sentido antihorario osea 90 que es derecha y 180 que es abajo, pues significa  de la derecha hacia abajo o en otra palabras diagonal de derecha hacia abajo, luego de esto siguigue el primer color por el que va a empezar el degradado que es de tipo HLS = tono,saturacion,luminosidad, 36 = naranja, 100% = lo mas vivo que da el color, 50% = brillo medio o sea naranja intenso, y el segundo color un naranja mas claro y menos intenso */
+    padding: 20%; /* Esto me agrega un 20% de espacio al tamaño de el header, dandonos mas espacio y que se vea mas llena la caja de el header, el tamaño de el header lo establece el logo el p1 y el boton ese 20% impide que el header se nos pegue en los bordes */  
+    border-radius: 12px; /* Esto nos redondea las esquinas de nuestro header 12px*/
+    margin-bottom: 20px; /* Esto nos da un espacio de 12px entre el header y lo que se encuentre en la parte de abajo de el */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Esto nos da sombra al header, "0" centrado horizontalmente, "4px" hacia abajo , "12px" que la sombra se estira hacia todos los lados o se pone mas borrosa, y el color negro con un 10% de opacidad (o sea solo el 10% de el color)*/
 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    text-align: center; /* centra el texto de el parrafo */ 
+    display: flex; /* Esto nos permite poder centrar nuestro contenido de el header, nos establece el contenido a flexbox transdormando los elementos internos en flex itemns, permitinedo mas funciones */
+    flex-direction: column; /* El diplay: flex; nos acomoda por defecto el contenido de el header horizontalmente (uno despúes de el otro hacia la derecha), esta etiqueta lo que hace es que nos acomoda el contenido verticalmete, o sea uno debajo de el otro*/
+    align-items: center; /* Esto lo que hace esque nos centra horizontalmente todos los elementos adentro de el header */
+    justify-content: center; /*Esto lo qeu hace esque nos centra todos los elementos de el header verticalmente*/
+    gap: 5px; /*Esto lo que hace esque nos pone 5px de espacio entre cada elemnto de el header (logo,h1,p,bottom) */
+    text-align: center; /* centra el texto dentro de sus elemntos (h1, p), sin el el texto se veria desorganizado */ 
 }
-header {
-    background: linear-gradient(135deg, hsl(36, 100%, 50%), hsl(36, 80%, 60%));
-    padding: 20%;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    text-align: center;
-}
-
 
 header p {
-    max-width: 420px;     /* limita ancho para que se vea centrado*/
-    margin-top: 0;
-    margin-bottom: 16px;
-    
+    max-width: 420px;     /* limita ancho para que el "p" no pase mas de 420px para pantallas de mas de 420px */
+    margin-top: 0;        /* Esto nos elimina completamente el margen superior de el elemento */
+    margin-bottom: 16px;  /* Esto nos da un espacio de 16px entre el "p" y el elemento de abajo */   
+}
+
+/* Cambios Nombres y Precios de Productos */
+.item-nombre { 
+    font-weight: 400; /* Esto me modifica el peso (intensidad) de la letra o sea la hace mas oscura o de tipo negrita o mas delgada en este caso el 400 es el Texto de peso normal. */
+}
+
+.item-precio { 
+    font-weight: 600; /* Esto me le da un poco mas de peso a la letra por ser los precios */
+    color: hsl(36, 100%, 40%); /* eso nos da el color de la etiqueta item-precio, con el formato hsl: 36:naranja, 100%:el color puro, 40% con un 40 de brilo (entre mas porcentaje mas se se acercara al color blanco y viceversa con el color negro )*/
 }
 
 
-.page {
-    padding-bottom: 32px;
+.arepa-power {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: hsl(36, 100%, 40%);      /* Dorado/naranja, no rojo puro */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-/* Cambios Nombres y Precios de Productos*/
-.item-nombre {
-    font-weight: 400;
-}
-
-.item-precio {
-    font-weight: 600;
-    color: hsl(36, 100%, 40%);
+.arepa-power i {
+    font-size: 0.9rem;
 }
 
 /* Cambios de Contacto y WhatsApp*/
 
-.wap-link {
-    color: hsl(36, 100%, 50%);
-    font-weight: 700;
-    text-decoration: none;
+.wap-link { /* Esta es nuestra clase de el link hacia nuestro numero de whatssap */
+    color: hsl(36, 100%, 50%); /* Este es color naranja de siempre un poco mas iluminado */
+    font-weight: 700; /* Esto nos da un poco mas de peso a el contenedor con la clase , en este caso nos dio el tono exacto de la negrita (o sea que esta clase esta en negrita ) */
+    text-decoration: none; /* Esto nos quita el subrayado azul que por defecto ponene los navegadores a los links, en este caso es amarillo por el color de las letras */
 }
 
-.wap-link:hover {
-    text-decoration: underline;
+.wap-link:hover { 
+    text-decoration: underline; /* Esto nos agrega la misma linea que quitamos antes, pero solo al momento de pasar el maus encima de el link */
 }
 
-.contacto p:last-child {
-    font-size: 1.1rem;
-    font-weight: normal;
-    color: hsl(36, 100%, 50%);
-    margin-top: 8px;
+.contacto p:last-child { /* Esto nos estiliza solo el ultimo <p> de le contenedor con la clase .contacto en nuestro caso donde se encuentra el numero de contacto. */
+    font-size: 1.1rem; /* Esto nos ajusta el tamaño de la letra un poco mas grande (un 10%) a diferencia de el otro <p> de el contenedor */
+    font-weight: normal; /* Esto nos deja normal el peso de la letra o como lo oscuro */
+    color: hsl(36, 100%, 50%); /* Esto me le da color a el texto indicado 36:color, 100%:color al maximo, 50%:luminosidad */
+    margin-top: 8px; /* margen con la etiqueta de arriba de 8px */
 }
-
 
 /* Logo REYPAS */
 
 .logo-central {
-    width: 100px;
-    height: auto;
-    margin-bottom: 0;
+    width: 100px; /* ancho de la imagen de 100px */
+    height: auto; /* alto de la imagen, automatico y proporcional a el width */
+    margin-bottom: 0; /* margen de abajo de 0px */
+    padding: 0; /* Esto quita todo tipo de espacio interno de el logo: arriba, derecha, abajo, izquierda */
+    align-content: center; /* esto me pone el logo bien centrado (verticalmente) en el header */
+}
+
+/* Despliegue de ingredientes */
+
+.ingredientes {
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;         /* ← Ancho completo debajo */
     padding: 0;
-    align-content: center;
+    background: hsl(36, 10%, 98%);
+    font-size: 0.9em;
+    color: #666;
+    transition: height 0.3s ease, padding 0.3s ease;
+    display: block;          /* ← SIEMPRE después de precio */
+}
+
+.ingredientes.visible {
+    max-height: 80px;
+    padding: 12px 0;
+    line-height: 1.6;
+    font-size: 0.9em;
+}
+
+.fila {
+    display: flex !important;       /* ← FUERZA flex horizontal */
+    justify-content: space-between; /* ← NOMBRE izquierda, PRECIO derecha */
+    align-items: center;
+    margin-bottom: 4px;
 }

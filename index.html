@@ -1,85 +1,143 @@
-<!DOCTYPE html> <!-- Esto nos da a anetener que vamos a utilizar html -->
+<!DOCTYPE html> <!-- Esto nos da a a entener que vamos a utilizar html -->
 <html lang="en"> <!-- Esto nos configura en leguaje que vamos a utilizar en la pagina -->
 <head> <!-- Esto es para Modificar lo principal que necesita una pagina WEB -->
     <meta charset="UTF-8"> <!-- Esto nos permite usar todos los tipos de caracteres como la "ñ"-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Esta linea nos permite que la pagina se adapta al tamaño de la pantalla de cualquier dispositivo-->
     <title>Menu REYPAS</title> <!-- Esto es lo que va a apareceer en la aprte superior de la Pagina-->
-    <link rel="stylesheet" href="styles.css"> <!-- Esto conecta nuestro archivo index con nuestro archivo styles-->
-</head>
-<body>
-<div class="page">
-    <header>
-    <img src="img/logo-reypas.png" alt="logo REYPAS" class="logo-central">
-    <h1>REYPAS</h1> <!-- eSTO ES -->
-    <p>Con cada mordida, haces parte de la historia</p>
-    <button class="boton-modo" id="toggle-modo">Cambiar modo</button>
-    </header>
-    
-    <hr>
+    <link rel="stylesheet" href="styles.css"> <!-- Esto conecta nuestro archivo index con nuestro archivo styles -->
+</head> 
+<body> <!-- Este es el contenedor de todo el contenido visible de la pagina WEB -->
+<div class="page"> <!-- Este es el contenedor principal con la clase CSS .page para modificart todo el menu REYPAS -->
+    <header> <!-- Esto es como lo que siempre va de primera en una pagina, siendo mas tecnico, la cabecera de la pagina o contenido -->
+    <img src="img/logo-reypas.png" alt="logo REYPAS" class="logo-central"> <!-- Esto nos inserta el logo con 3 atributos
+    clave: 1."src="img/logo-reypas.png"" = esto nos busca y nos insta el logo en la pagina, 2."alt="logo REYPAS"" = Esto es por si no nos carga el logo, se mostrara este mensaje, 3."class="logo-central"" = Esto es una clase CSS para estilizar el logo -->
+    <h1>REYPAS</h1> <!-- Esto es para definir el tema principal de la pagina, se coloca una solo vez por pagina -->
+    <p>Con cada mordida, haces parte de la historia</p> <!-- Esto define el parrafo de un texto -->
+    <button class="boton-modo" id="toggle-modo">Cambiar modo</button> <!-- Esto nos crea un boton para darle cualquier tipo de funciones -->
+    </header> 
+    <!---->
+    <hr> <!-- Esto es una linea horizontal que nos separa secciones -->
 
-    <h2>Bebidas</h2>
+    <h2>Bebidas</h2> <!-- Esto es para todos los subtitulos de una pagina -->
+    <ul> <!-- Esto crea una lista desordenada (o sea tiene viñetas o puntos no es numerada), el contenedor(la caja) que almacena varios <li> como lista de cosas -->    
+        <!-- BEBIDAS REYPAS (Perfecto ordenado) -->
     <ul>
-        <li>
-            <span class="item-nombre">Tinto</span>
-            <span class="item-precio">$1200</span>
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">☕ Tinto</span>
+                <span class="item-precio">$1200</span>
+            </div>
+            <div class="ingredientes">☕ Café colombiano 100%, panela orgánica, canela natural, agua purificada</div>
         </li>
-        <li>
-            <span class="item-nombre">Perico</span>
-            <span class="item-precio">$1600</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🥛 Perico</span>
+                <span class="item-precio">$1600</span>
+            </div>
+            <div class="ingredientes">🥛 Café colombiano, leche entera fresca, panela artesanal, pizca de sal</div>
         </li>
-        <li>
-            <span class="item-nombre">Aromatica</span>
-            <span class="item-precio">$1200</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🌿 Aromática</span>
+                <span class="item-precio">$1200</span>
+            </div>
+            <div class="ingredientes">🌿 Agua purificada, hierbas naturales frescas, toque de limón</div>
         </li>
-        <li>
-            <span class="item-nombre">Chocolate Pequeño</span>
-            <span class="item-precio">$2500</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🍫 Chocolate Pequeño</span>
+                <span class="item-precio">$2500</span>
+            </div>
+            <div class="ingredientes">🍫 Chocolate premium, leche entera, panela balanceada</div>
         </li>
-        <li>
-            <span class="item-nombre">Chocolate Grande</span>
-            <span class="item-precio">$4500</span> 
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🍫 Chocolate Grande</span>
+                <span class="item-precio">$4500</span>
+            </div>
+            <div class="ingredientes">🍫 Chocolate grande premium, leche entera generosa, panela extra</div>
         </li>
     </ul>
 
     <h2>Arepas</h2>
     <ul>
-        <li>
-            <span class="item-nombre">Arepa POWER</span>
-            <span class="item-precio">$6000</span>
+        <!-- AREPAS REYPAS (Formato idéntico bebidas) -->
+    <ul>
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🥟 Arepa <span class="arepa-power">⚡POWER</span></span>
+                <span class="item-precio">$6000</span>
+            </div>
+            <div class="ingredientes">🌽 Harina premium, 🧀 queso mozzarella, 🥓 chorizo ahumado, 🧈 mantequilla REYPAS, 🌶️ salsa ⚡</div>
         </li>
-        <li>
-            <span class="item-nombre">Arepa ReQuesuda</span>
-            <span class="item-precio">$3800</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🧀 Arepa ReQuesuda</span>
+                <span class="item-precio">$3800</span>
+            </div>
+            <div class="ingredientes">🧀 Harina premium, mozzarella doble capa, costeño fundido, queso campesino, mantequilla REYPAS</div>
         </li>
-        <li>
-            <span class="item-nombre">Arepa JQ</span>
-            <span class="item-precio">$3000</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🥪 Arepa JQ</span>
+                <span class="item-precio">$3000</span>
+            </div>
+            <div class="ingredientes">🥪 Harina premium, jamón ahumado, mozzarella derretida, queso costeño, mantequilla REYPAS</div>
         </li>
-        <li>
-            <span class="item-nombre">Arepa Quesuda</span>
-            <span class="item-precio">$2500</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🧀 Arepa Quesuda</span>
+                <span class="item-precio">$2500</span>
+            </div>
+            <div class="ingredientes">🧀 Harina premium, mozzarella fresca, costeño derretido, queso campesino, mantequilla REYPAS</div>
         </li>
-        <li>
-            <span class="item-nombre">Arepa Sencilla</span>
-            <span class="item-precio">$1200</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🥙 Arepa Sencilla</span>
+                <span class="item-precio">$1200</span>
+            </div>
+            <div class="ingredientes">🌽 Harina de maíz premium, 🧈 mantequilla secreta REYPAS</div>
         </li>
     </ul>
 
+    </ul>
+
     <h2>Combos</h2>
-    <ul>
-        <li>
-            <span class="item-nombre">Combo El RAPIDO: Arepa Queso + Perico </span>
-            <span class="item-precio">$3700 ¡Ahorra! $500</span>
+    <!-- COMBOS REYPAS (Formato idéntico arepas/bebidas) -->
+    <ul class="menu-combos">
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">⚡ Combo El RÁPIDO: Arepa Queso + Perico</span>
+                <span class="item-precio">$3700 <span class="ahorro">¡Ahorra $500!</span></span>
+            </div>
+            <div class="ingredientes">🥟 Arepa Queso (🧀 mozzarella fresca, costeño derretido) + ☕ Perico (🥛 leche, panela artesanal)</div>
         </li>
-        <li>
-            <span class="item-nombre">Combo El LLENADOR: Arepa POWER + Chocolate Grande</span>
-            <span class="item-precio">$10000 ¡Ahorra! $500</span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">💪 Combo El LLENADOR: Arepa <span class="arepa-power">⚡POWER</span> + Chocolate Grande</span>
+                <span class="item-precio">$10000 <span class="ahorro">¡Ahorra $500!</span></span>
+            </div>
+            <div class="ingredientes">🥟 Arepa ⚡POWER (🌽 harina premium, 🧀 mozzarella doble, 🥓 chorizo, 🧈 mantequilla REYPAS) + 🍫 Chocolate Grande (leche extra, panela)</div>
         </li>
-        <li>
-            <span class="item-nombre">Combo REYPAS: AREPA BURGER + JUGO</span>
-            <span class="item-precio">$12000 ¡Ahorra! $500 </span>
+        
+        <li onclick="toggleIng(this)">
+            <div class="fila">
+                <span class="item-nombre">🏆 Combo REYPAS: AREPA BURGER + Jugo</span>
+                <span class="item-precio">$12000 <span class="ahorro">¡Ahorra $500!</span></span>
+            </div>
+            <div class="ingredientes">🍔 Arepa Burger (🥩 carne jugosa, 🧀 queso derretido, 🥬 vegetales frescos, salsas REYPAS) + 🧃 Jugo natural del día</div>
         </li>
     </ul>
+
 <div class="contacto">
     <p> Direccion....</p>+
     <p>WhatsApp: <a href="https://wa.me/573116359685" class="wap-link">3116359685</a></p>

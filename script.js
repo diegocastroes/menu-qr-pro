@@ -21,3 +21,17 @@ titulos.forEach((titulo) => {
     titulo.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+/*Despliegue de ingredinetes*/
+
+function toggleIng(producto) {
+    const ing = producto.querySelector('.ingredientes');
+    if (ing.classList.contains('visible')) {
+        ing.style.height = '0px';
+        setTimeout(() => ing.classList.remove('visible'), 10);
+    } else {
+        ing.classList.add('visible');
+        ing.style.height = ing.scrollHeight + 'px';  // ← Altura EXACTA contenido
+    }
+}
+
