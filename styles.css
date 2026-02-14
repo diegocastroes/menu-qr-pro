@@ -37,7 +37,7 @@ body.modo-oscuro hr {
     font-size: 0.9rem; /* Esto le da el tamaño a la letra de nuestro boton */
     cursor: pointer; /*Esto es para que cuado se le pase el cursor por encima muestre una mano */
     box-shadow: 0 2px  6px rgba(0,0,0,0.2); /*Esto le da la sombra al boton la linea se desglosa de la siguiente manera: "0" = Offset-X(Desplazamiento en X) Define desplazamiento Horizontal, Este valor nos posiciona la sombra en el centro, numeros positivos la mueven a la derecha y los negativos a la izquierda, "2px" = Offset-Y Define desplazamiento Vertical, Este valor nos posiciona la sombra un poco abajo de el boton, como si se estuviera elevando, numeros negativos la suben y numeros positivos la bajan, 6px = Blur-Radius (Radio de desenfoque de la sombra) 6px nos da un efecto suave, entre mas alto el numero mas borrosa se vera la sombra, o sea al momento de aumentar el numero la sombra se nos etirara mas es decir, se nos alarga mas a las lados y de arriba hacia abajo y los bordes se ponene mas suaves, Color(rgba(0,0,0,0.2)) R=0, G=0, B=0, alpha=20% opacidad, para un efecto natural y sutil, el alpha nos permite trasparencia, evitando sombras opacas.*/
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s; /* Todo esto nos sirve para el momento en que se va a usar el hover, el  "transform 0.15s ease" se desglosa de la siguiente manera, transform: es para hacerlo mas grande o mas pequeño o rotarlo, 0.15s: para que tarde un poco antes de que suceda el transform y ease: Es para que se empiece lento acelera en medio  y termine lento, ahora vamos con el "box-shadow 0.15s ease" es para cualquier cambio que se le haga a ala sombra cpn 0.15s de retraso mas el ease, y por ultimo:background 0.2s Este es para modificar cualquier cambio de color de el boton con un poco mas de retraso (0.20s) mas el ease */
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s; /* Todo esto nos sirve para el momento en que se va a usar el hover, el  "transform 0.15s ease" se desglosa de la siguiente manera, transform: es para hacerlo mas grande o mas pequeño o rotarlo, 0.15s: para que tarde un poco antes de que suceda el transform y ease: Es para que se empiece lento acelera en medio  y termine lento, ahora vamos con el "box-shadow 0.15s ease" es para cualquier cambio que se le haga a ala sombra con 0.15s de retraso mas el ease, y por ultimo:background 0.2s Este es para modificar cualquier cambio de color de el boton con un poco mas de retraso (0.20s)*/
 }
 
 .boton-modo:hover { /* Esto node define que pasa con el hover(o sea caundo pasamos el maus encima de cualquier etiqueta html), de el boton con la clase boton-modo */
@@ -145,6 +145,9 @@ header p {
 /* Cambios Nombres y Precios de Productos */
 .item-nombre { 
     font-weight: 400; /* Esto me modifica el peso (intensidad) de la letra o sea la hace mas oscura o de tipo negrita o mas delgada en este caso el 400 es el Texto de peso normal. */
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .item-precio { 
@@ -153,22 +156,19 @@ header p {
 }
 
 
-.arepa-power {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: hsl(36, 100%, 40%);      /* Dorado/naranja, no rojo puro */
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.arepa-power { /* Esto nos da estilo a la parte dinde dice POWER en las arepas */
+    display: inline-flex; /* Esto nos crea una cajita que nos mantiene la palabra enseguida de la otra, a diferencia de display: flex; que lo que hace es que nos acomoda el POWER debajo de Arepa , y tambien nos permite poder usar todas sus fuciones Flexbox (como el que le sigue a esta linea) sin esta linea estas funciones no servirian */
+    align-items: center; /* Esto nos centra en bien nuestra etiqueta verticalemte detro de nuestra cajita invisible */
+    gap: 4px; /* Esto lo que hace esque me da un espacio entre todos los hijos de la caja flex osea entre el emoji el el POWER */
+    color: hsl(36, 100%, 40%); /* Color Dorado/naranja, no rojo puro */
+    font-weight: 700; /* Peso de la fuente en este caso esta en negrita*/
+    font-size: 0.85rem; /* Tamaño de la fuente un poco mas pequeña que la letra normal de los li */
+    text-transform: uppercase; /* Esto nos convierte todo el texto en mayuscula */
+    letter-spacing: 0.05em; /* Esto nos separa las letras entre si por un pequeño espacio (5% de el tamaño de la fuente )*/
 }
 
-.arepa-power i {
-    font-size: 0.9rem;
-}
 
-/* Cambios de Contacto y WhatsApp*/
+/* Cambios de Contacto y WhatsApp */
 
 .wap-link { /* Esta es nuestra clase de el link hacia nuestro numero de whatssap */
     color: hsl(36, 100%, 50%); /* Este es color naranja de siempre un poco mas iluminado */
@@ -197,30 +197,37 @@ header p {
     align-content: center; /* esto me pone el logo bien centrado (verticalmente) en el header */
 }
 
+.logo-precios {
+    width: 20px;
+    height: auto;
+    margin-bottom: 0;
+    padding: 0;
+    align-content: center;
+}
+
 /* Despliegue de ingredientes */
 
 .ingredientes {
-    max-height: 0;
-    overflow: hidden;
-    width: 100%;         /* ← Ancho completo debajo */
-    padding: 0;
-    background: hsl(36, 10%, 98%);
-    font-size: 0.9em;
-    color: #666;
-    transition: height 0.3s ease, padding 0.3s ease;
-    display: block;          /* ← SIEMPRE después de precio */
+    max-height: 0; /* Esto lo que hace esque el elmento no muestre su contenido al dejarle una altura maxima de 0px, en nuestro caso es para ocultar todo el contenido de los ingredientes para despues darle la animacion con java script apera que al tocarlo se despliegue */
+    overflow: hidden; /* Esto lo que hace es que nos hace invisibles(esconden) los ingredientes de nuestro menu */
+    width: 100%; /* Esto es para que el contenido de los ingredientes usen el 100% de el espacio que tienen permitido (se vea lo mas grande que pueda en el espacio que tienen permitido), se nota espacialmente en los celulares */
+    padding: 0; /* Esto lo que hace es que disminulle a 0 el tamaño de la cajita donde se ven lo ingredientes */
+    background: hsl(36, 10%, 98%); /* Esto es el color de fondo de la cajita donde estan los ingredientes */
+    font-size: 0.9em; /*Esto es para el tamaño de la letra de los ingredientes 0.1em mas pequeño que el de las otras etiquetas de el li */
+    color: #666; /* Este es el color de la letra de los ingredientes*/
+    transition: height 0.3s ease, padding 0.3s ease; /* Esta linea lo que hace esque cuando la altura y relleno de el elemento cambien de tamaño lo hagan con una animacion de 0.3s(o sea no cambia abruptamente sino con un timepo de 0.3s), y con la curva de aceleracion ease( empieza lento, acelera en medio y termina lento la animacion), esto prepara la etiqueta para que js o css la usen en los cambios */       
 }
 
-.ingredientes.visible {
-    max-height: 80px;
-    padding: 12px 0;
-    line-height: 1.6;
-    font-size: 0.9em;
+.ingredientes.visible { /* Esto es lo que le da los estilos a los ingredientes con la clase adicional (.visible) que es la que usa java script para darle los cambios cuando se le de clic al producto */
+    max-height: 80px; /* Esto es la altura maxima que va a tener la cajita donde se van a ver los ingredientes al momento de darles clic, para que la caja se haga mas grande simepre que se le espiche el boton es con min-height */
+    padding: 12px 0; /* Esto me le agrega un espacio de 12px arriba y abajo de la cajita, y 0px a los lados*/
+    line-height: 1.6; /* Esto lo que hace es que me da 1.6 veces mas de espacio, entre cada linea de los ingredientes */
+    font-size: 0.9em; /* Esto me le da el mismo tamaño de letra que los ingredientes normales(o sea los de arriba de este codigo )*/
 }
 
-.fila {
-    display: flex !important;       /* ← FUERZA flex horizontal */
-    justify-content: space-between; /* ← NOMBRE izquierda, PRECIO derecha */
-    align-items: center;
-    margin-bottom: 4px;
+.fila { /* Esto nos da estilos a el producto y al precio de cada producto */
+    display: flex !important; /* Esta linea hace dos cosas 1 "display: flex" esto convierte este elemento en un contenedor flexbox, nos acomoda los elemntos en fila, uno despues de el otro, y me permite usar otras mas funciones que se encuentran abajo */
+    justify-content: space-between; /* Esto hace que el nobre de el producto se muestre en la izquierda y el precio en la derecha */
+    align-items: center; /* Esto es para centrar verticalmente los elementos, en mi caso el nombre y el precio */
+    margin-bottom: 4px; /* Esto lo que hace esque nos da un epacio de 4px hacia abajo ,o sea nos separa 4px con respecto a lo que se encuentre abajo de esa etiqueta */
 }
