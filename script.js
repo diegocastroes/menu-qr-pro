@@ -23,13 +23,24 @@ titulos.forEach((titulo) => { /* Esta linea se desglosa de la siguiente manera, 
 
 /*Despliegue de ingredinetes*/
 
-function toggleIng(producto) { /* Esto es una funcion llamada = toggleIng que nos recibe una variable a la que  llamamos "producto" la cual nos va a almacenar todo el contenido que tenga el li al que se le de clic, con el codigo   que se encuentra en el HTML como: <li onclick="toggleIng(this)"> */
+function toggleIng(producto) { /* Esto es una funcion llamada = toggleIng que nos recibe una variable a la que  llamamos "producto" la cual nos va a almacenar todo el contenido que tenga el li al que se le de clic, con el codigo   que se encuentra en el HTML como: <li onclick="toggleIng(this)"> /* El toggleIng significa: Alternar Ingredientes */
     const ing = producto.querySelector('.ingredientes'); /* Esta linea lo que hace es que nos crea una constante llamada = ing la cual  nos va a guardar de el elemento HTML el cual lo llamamos: "producto" el cual es un li de ese li solo vamos a utilizar la clase '.ingredientes' con el metodo DOM( Document Object Model):querySelector('.ingredientes') */
-    if (ing.classList.contains('visible')) { /* Esta linea lo que hace esque nos crea un condicional if-else, esta linea se desglosa de la siguiente manera, ing.classList = lo que hace es que nos va a obtener la lista de clases css de el div ingredientes , luego usa una un metodo llamado .contains que nos pregunta si tenemos la case 'visible', si es true entonces se nos va a ejecutar el codigo de abajo */
-        ing.style.height = '0px'; /* Esto lo que hace esque con ".style" nos va a aplicar el estilo "heigth" el cual va a imponerse sobre cualquier "heigth" de el archivo css, con  ".height" = '0px', lo que hacemos esque se colapsa la altura a 0 pixeles */
+    if (ing.classList.contains('visible')) { /* Esta linea lo que hace esque nos crea un condicional if-else, esta linea se desglosa de la siguiente manera, ing.classList = lo que hace es que nos va a obtener la lista de clases css de el div ingredientes , luego usa una un metodo llamado .contains que nos pregunta si tenemos la clase 'visible', si es true entonces se nos va a ejecutar el codigo de abajo */
+        /*ing.style.height = '0px'; /* Esto lo que hace esque con ".style" nos va a aplicar el estilo "heigth" el cual va a imponerse sobre cualquier "heigth" de el archivo css, con  ".height" = '0px', lo que hacemos esque se colapsa la altura a 0 pixeles */
         setTimeout(() => ing.classList.remove('visible'), 10); /* Esta linea se desglosa de la siguiente manera, setTimeout() = Esto nos estable un tiempo de x milisegundos antes de ejecutar luego establecesmos una funcion de flecha o un "callback" que lo que hace esque nos va a buscar la clase "visible" y nos la va a quitar con un delay/retraso de 10 mls, osea que visualmente se nos va a plegar o quitar los ingredientes */
     } else { /* Esto es si por el contrario nos da false en nuestro condicional se ejecutara el codigo de abajo */
         ing.classList.add('visible'); /* Esto lo que hace es que nos usa un metodo de la clase classList, el cual es "add()" el cual lo que hace esque nos va a agregar a nuestra variable constante "ing" (la cual contiene la clase HTML "ingredientes"), la clase visible para poder desplegar los ingredientes  */
-        ing.style.height = ing.scrollHeight + 'px'; /* Esto lo que hace es que se van a agregar un estilo  de la altura el cual va a hacer que nuestra variable ing se despliegue al tamaño real de el contenido (Tamaño de letras y el padding) en nuestro caso de los ingredientes */
+        /*ing.style.height = ing.scrollHeight + 'px'; /* Esto lo que hace es que se van a agregar un estilo  de la altura el cual va a hacer que nuestra variable ing se despliegue al tamaño real de el contenido (Tamaño de letras y el padding) en nuestro caso de los ingredientes */
     }
+
+    /* Codigo para rotacion de el logo de precios  */
+    const log = producto.querySelector('.logo-precios');
+
+    if (log.classList.contains('visible')) {
+       setTimeout(() => log.classList.remove('visible'), 10);
+    }
+    else {
+      log.classList.add('visible');
+    }
+
 }

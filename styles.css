@@ -145,9 +145,9 @@ header p {
 /* Cambios Nombres y Precios de Productos */
 .item-nombre { 
     font-weight: 400; /* Esto me modifica el peso (intensidad) de la letra o sea la hace mas oscura o de tipo negrita o mas delgada en este caso el 400 es el Texto de peso normal. */
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex; /* Esto nos permite usar todo tipo de flex */
+    align-items: center; /* Esto nos centra nuestro item */
+    gap: 8px; /* Esto nos da un espacio de 8px con respecto a los elementos dentro de el contenedor */
 }
 
 .item-precio { 
@@ -197,12 +197,16 @@ header p {
     align-content: center; /* esto me pone el logo bien centrado (verticalmente) en el header */
 }
 
-.logo-precios {
-    width: 20px;
+.logo-precios { /* Esto nos modifica el logo que esta al lado izquierdo de los nombres de los productos */
+    width: 20px; 
     height: auto;
-    margin-bottom: 0;
-    padding: 0;
     align-content: center;
+    transition: transform 0.5s ease; 
+    
+}
+
+.logo-precios.visible {
+    transform: rotate(180deg);
 }
 
 /* Despliegue de ingredientes */
@@ -231,3 +235,4 @@ header p {
     align-items: center; /* Esto es para centrar verticalmente los elementos, en mi caso el nombre y el precio */
     margin-bottom: 4px; /* Esto lo que hace esque nos da un epacio de 4px hacia abajo ,o sea nos separa 4px con respecto a lo que se encuentre abajo de esa etiqueta */
 }
+
