@@ -195,7 +195,19 @@ header p {
     margin-bottom: 0; /* margen de abajo de 0px */
     padding: 0; /* Esto quita todo tipo de espacio interno de el logo: arriba, derecha, abajo, izquierda */
     align-content: center; /* esto me pone el logo bien centrado (verticalmente) en el header */
+    transition: transform 0.7s ease-out;
 }
+
+.girar-logo {
+  animation-name: giro360;
+  animation-fill-mode: forwards;
+}
+
+@keyframes giro360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 
 .logo-precios { /* Esto nos modifica el logo que esta al lado izquierdo de los nombres de los productos */
     width: 20px; 
@@ -208,6 +220,9 @@ header p {
 .logo-precios.visible {
     transform: rotate(180deg);
 }
+
+
+
 
 /* Despliegue de ingredientes */
 
@@ -234,6 +249,9 @@ header p {
     justify-content: space-between; /* Esto hace que el nobre de el producto se muestre en la izquierda y el precio en la derecha */
     align-items: center; /* Esto es para centrar verticalmente los elementos, en mi caso el nombre y el precio */
     margin-bottom: 4px; /* Esto lo que hace esque nos da un epacio de 4px hacia abajo ,o sea nos separa 4px con respecto a lo que se encuentre abajo de esa etiqueta */
+
 } 
+
+
 
 

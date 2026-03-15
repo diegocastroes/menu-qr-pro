@@ -1,15 +1,24 @@
 // CAMBIO JS 1: Botón para modo claro / oscuro
 const botonModo = document.getElementById('toggle-modo'); /* Esto lo que hace es que me crea una constante(o sea una variable que nunca puede ni va a cambiar llamada botonModo , luego con document.getElementById() busco en el documento HTML que me obtenga un elemento, en este caso un Id llamado  'toggle-modo'(modo alternar en ingles) */
+const logo = document.querySelector('.logo-central');
+let angulo = 0;  
 
+/* Idea: al momento de darle cabiar de color el logo central haga movimiento de 360 deg */
 botonModo.addEventListener('click', () => { /* Esta linea se desglosa de la siguiente manera: " botonModo.addEventListener()" = esto lo que hace esque a nustra constante "botonModo" y se le agrega un escuchador de eventos (clicl,mover mause etc) en nuestro caso es un clic, " 'click', "() => { " esto lo que hace esque el escuchador va estar pendiente de que le den clic a el boton y luego se va a ejecutar una funcion de flecha, que es vacia ya que no necesita parametros */
-  
+
   document.body.classList.toggle('modo-oscuro'); /* Esta linea de desglosa de la siguuiente manera:  document.body = se refiere a toda la pagina de el documento por el body, .classList = Esto es lo que contiene todas las clases que tiene la etiqueta, en nuestro caso ninguna, esto nos crea una lista vacia, lista para el .toggle('modo-oscuro') = esto lo que hace es que nos agrega a el body la clase= modo-oscuro y aplica todos los styles css que tenga , si al hacer clic ya se tiene la clase 'modo-oscuro', se quita y queda como antes */
 
   if (document.body.classList.contains('modo-oscuro')) { /* Esto es un condicional que le aplica un metodo de classList a el body de la pagina , llamado contains que lo que hace es que nos devuelve un boleano "true" si la clase 'modo-oscuro" esta aplicada en el body y si no esta pues nos devuelve "false" */
     botonModo.textContent = 'Modo claro'; /* esto lo que hace esque con "textContent" se le cambia el texto que se ve dentro de el boton en este caso a 'Modo claro', o sea si el el condicional nos da true entonces el boton dira Modo-claro o sea que al espichar se pondra claro y si por en contrario el condicional da false pues el boton nos mostrara 'Modo oscuro' */
+    angulo += 360;
   } else {
     botonModo.textContent = 'Modo oscuro';
+      angulo -= 360;
   }
+
+  logo.style.transform = `rotate(${angulo}deg)`;
+  console.log('Nuevo ángulo:', angulo);  
+
 });
 
 // Resalta el título de sección al tocarla
@@ -37,7 +46,7 @@ function toggleIng(producto) { /* Esto es una funcion llamada = toggleIng que no
     const log = producto.querySelector('.logo-precios');
 
     if (log.classList.contains('visible')) {
-       setTimeout(() => log.classList.remove('visible'), 10);
+      setTimeout(() => log.classList.remove('visible'), 10);
     }
     else {
       log.classList.add('visible');
