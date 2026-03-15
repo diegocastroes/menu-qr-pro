@@ -234,5 +234,6 @@ header p {
     justify-content: space-between; /* Esto hace que el nobre de el producto se muestre en la izquierda y el precio en la derecha */
     align-items: center; /* Esto es para centrar verticalmente los elementos, en mi caso el nombre y el precio */
     margin-bottom: 4px; /* Esto lo que hace esque nos da un epacio de 4px hacia abajo ,o sea nos separa 4px con respecto a lo que se encuentre abajo de esa etiqueta */
-}
+} 
+
 
